@@ -1,0 +1,16 @@
+{
+  "name": "forge-noise",
+  "version": "1.0.0",
+  "description": "A high-performance Perlin noise generation library",
+  "main": "forgeNoise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "uglifyjs forgeNoise.js -c -m -o dist/forgeNoise.min.js"
+  },
+  "keywords": ["noise", "perlin", "procedural", "generation"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "uglify-js": "^3.14.2"
+  }
+}
