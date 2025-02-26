@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForgeNoise</title>
+    <link rel="icon" type="image/x-icon" href="./main-256.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <button class="nav-toggle">☰</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="examples.html">Examples</a>
+            <a href="api.html">API</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+    <main>
+        <h1>ForgeNoise</h1>
+        <p>The best.</p>
+        
+        <h2>Installation</h2>
+        <p>Add ForgeNoise to your project with a script tag:</p>
+        <pre><code>&lt;script src="https://raw.githubusercontent.com/TheEmptynessProject/ForgeNoise/main/dist/forgeNoise.min.js"&gt;&lt;/script&gt;</code></pre>
+        <p>Or include it locally:</p>
+        <pre><code>&lt;script src="path/to/forgeNoise.min.js"&gt;&lt;/script&gt;</code></pre>
+    </main>
+    <script src="../dist/forgeNoise.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

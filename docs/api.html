@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - ForgeNoise</title>
+    <link rel="icon" type="image/x-icon" href="./main-256.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <button class="nav-toggle">☰</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="examples.html">Examples</a>
+            <a href="api.html">API</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+    <main>
+        <h1>API Documentation</h1>
+        
+        <h2>Constructor</h2>
+        <pre><code>new ForgeNoise(seed)</code></pre>
+        <p>Initializes a noise generator with an optional seed for reproducibility.</p>
+        
+        <h2>Noise Functions</h2>
+        <pre><code>generate2D(x, y)</code></pre>
+        <p>Generates 2D Perlin noise at (x, y). Returns [-1, 1].</p>
+        
+        <pre><code>generate3D(x, y, z)</code></pre>
+        <p>Generates 3D Perlin noise at (x, y, z). Returns [-1, 1].</p>
+        
+        <pre><code>generateSimplex2D(x, y)</code></pre>
+        <p>Generates 2D Simplex noise at (x, y). Returns [-1, 1].</p>
+        
+        <pre><code>generateWorley2D(x, y)</code></pre>
+        <p>Generates 2D Worley noise at (x, y). Returns [0, ~1.414].</p>
+        
+        <h2>Advanced Functions</h2>
+        <pre><code>warp2D(x, y, options)</code></pre>
+        <p>Generates 2D warped noise. Options: <code>{ warpStrength, warpScale, iterations }</code>. Returns [-1, 1].</p>
+        
+        <pre><code>generateFractal2D(x, y, options)</code></pre>
+        <p>Generates 2D fBm noise. Options: <code>{ octaves, lacunarity, persistence, scale, normalized, ridged, turbulence }</code>. Returns [-1, 1].</p>
+        
+        <h2>Range Mapping</h2>
+        <pre><code>generate2D01(x, y)</code></pre>
+        <p>2D Perlin noise mapped to [0, 1].</p>
+        
+        <pre><code>generateSimplex2D01(x, y)</code></pre>
+        <p>2D Simplex noise mapped to [0, 1].</p>
+        
+        <pre><code>generateWorley2D01(x, y)</code></pre>
+        <p>2D Worley noise mapped to [0, 1].</p>
+    </main>
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Examples - ForgeNoise</title>
+    <link rel="icon" type="image/x-icon" href="./main-256.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <button class="nav-toggle">☰</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="examples.html">Examples</a>
+            <a href="api.html">API</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+    <main>
+        <h1>Usage Examples</h1>
+        <p>Explore different noise types with interactive visualizations. Click a canvas to zoom in, and edit the code blocks below to see changes.</p>
+        
+        <h2>Noise Instance</h2>
+        <p>Edit the seed to change the noise pattern globally:</p>
+        <pre contenteditable="true" id="noise-seed"><code>window.noise = new ForgeNoise(12345);</code></pre>
+
+        <h2>2D Perlin Noise</h2>
+        <canvas id="perlin2d" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="perlin2d"><code>return noise.generate2D01(x / 16, y / 16)</code></pre>
+        
+        <h2>2D Simplex Noise</h2>
+        <canvas id="simplex2d" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="simplex2d"><code>return noise.generateSimplex2D01(x / 16, y / 16)</code></pre>
+        
+        <h2>2D Worley Noise</h2>
+        <canvas id="worley2d" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="worley2d"><code>return noise.generateWorley2D01(x / 16, y / 16)</code></pre>
+        
+        <h2>Domain Warping</h2>
+        <canvas id="warped2d" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="warped2d"><code>return (noise.warp2D(x / 16, y / 16, { warpStrength: 1, warpScale: 1 }) + 1) * 0.5</code></pre>
+        
+        <h2>Fractional Brownian Motion (fBm)</h2>
+        <canvas id="fbm2d" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="fbm2d"><code>return (noise.generateFractal2D(x / 16, y / 16, { octaves: 6, lacunarity: 2.0, persistence: 0.5 }) + 1) * 0.5</code></pre>
+        
+        <h2>Ridged Multifractal</h2>
+        <canvas id="ridged2d" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="ridged2d"><code>return (noise.generateFractal2D(x / 16, y / 16, { octaves: 6, ridged: true, lacunarity: 2.0, persistence: 0.5 }) + 1) * 0.5</code></pre>
+
+        <h2>Perlin Masked with Simplex</h2>
+        <canvas id="perlin-simplex-mask" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="perlin-simplex-mask"><code>let perlin = noise.generate2D01(x / 16, y / 16);
+let simplex = noise.generateSimplex2D01(x / 16, y / 16);
+return perlin * simplex;</code></pre>
+
+        <h2>Worley Masked with Perlin</h2>
+        <canvas id="worley-perlin-mask" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="worley-perlin-mask"><code>let worley = noise.generateWorley2D01(x / 16, y / 16);
+let perlin = noise.generate2D01(x / 16, y / 16);
+return worley * perlin;</code></pre>
+
+        <h2>Simplex Masked with fBm</h2>
+        <canvas id="simplex-fbm-mask" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="simplex-fbm-mask"><code>let simplex = noise.generateSimplex2D01(x / 16, y / 16);
+let fbm = (noise.generateFractal2D(x / 16, y / 16, { octaves: 4, lacunarity: 2.0, persistence: 0.5 }) + 1) * 0.5;
+return simplex * fbm;</code></pre>
+
+        <h2>Warped fBm with Turbulence</h2>
+        <canvas id="warped-fbm-turbulence" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="warped-fbm-turbulence"><code>let warped = noise.warp2D(x / 16, y / 16, { warpStrength: 2, warpScale: 1.5 });
+let fbm = noise.generateFractal2D(warped, y / 16, { octaves: 5, turbulence: true, lacunarity: 2.0, persistence: 0.6 });
+return (fbm + 1) * 0.5;</code></pre>
+
+        <h2>Voronoi Edges with Perlin Modulation</h2>
+        <canvas id="voronoi-perlin-edges" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="voronoi-perlin-edges"><code>let voronoi = noise.generateVoronoi2D(x / 16, y / 16).distance;
+let edges = Math.min(voronoi, 0.1) / 0.1; // Highlight edges
+let perlin = noise.generate2D01(x / 16, y / 16);
+return edges * perlin;</code></pre>
+
+        <h2>Tiled Simplex with Ridged Noise</h2>
+        <canvas id="tiled-simplex-ridged" width="256" height="256"></canvas>
+        <pre contenteditable="true" data-canvas="tiled-simplex-ridged"><code>let tiled = noise.generateTiling2D(x / 16, y / 16, { periodX: 64, periodY: 64 });
+let ridged = noise.generateFractal2D(x / 16, y / 16, { octaves: 4, ridged: true, lacunarity: 2.0, persistence: 0.5 });
+return (tiled + ridged + 2) * 0.25;</code></pre>
+    </main>
+    <div class="popup" id="canvas-popup">
+        <canvas class="popup-canvas" width="512" height="512"></canvas>
+        <button class="close-btn">Close</button>
+    </div>
+    <script src="../dist/forgeNoise.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
