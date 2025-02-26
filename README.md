@@ -1,39 +1,112 @@
 # ForgeNoise 🔥🗣
 
-ForgeNoise is a high-performance Perlin noise generation library for JavaScript.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+A high-performance JavaScript library for procedural noise generation, featuring multiple algorithms and fractal patterns. Perfect for games, visualizations, and creative coding projects.
+
+![ForgeNoise Examples](https://github.com/TheEmptynessProject/forgeNoise)
+
+## Features
+
+- 🌪 Multiple noise algorithms: Perlin, Simplex, Worley, and Voronoi
+- 🌀 Fractal noise generation (fBm, Ridged Multifractal)
+- 🌐 Domain warping and turbulence effects
+- 🧮 Seamless tiling patterns
+- ⚡ Web-optimized performance
+- 🌈 Customizable parameters for all noise types
+- 🔢 Seedable randomness
 
 ## Installation
 
-```
-npm install forge-noise
-```
-
-## Usage
-
-```
-const ForgeNoise = require('forge-noise');
-
-// Create a new noise generator (optionally with a seed)
-const noise = new ForgeNoise(12345);
-
-// Generate 2D noise
-let value2D = noise.generate2D(3.14, 2.71);
-
-// Generate 3D noise
-let value3D = noise.generate3D(1.0, 2.0, 3.0);
-
-// Generate noise in [0, 1] range
-let value01 = noise.generate2D01(3.14, 2.71);
+### CDN
+```html
+<script src="..."></script>
 ```
 
-## API
+### Local
+```html
+<script src="path/to/forgeNoise.min.js"></script>
+```
 
-- `new ForgeNoise(seed?)`: Create a new noise generator
-- `generate2D(x, y)`: Generate 2D noise in [-1, 1] range
-- `generate3D(x, y, z)`: Generate 3D noise in [-1, 1] range
-- `generate2D01(x, y)`: Generate 2D noise in [0, 1] range
-- `generate3D01(x, y, z)`: Generate 3D noise in [0, 1] range
+## Quick Start
+
+```javascript
+// Initialize generator
+const noise = new ForgeNoise(seedNumber);
+
+// Generate basic Perlin noise
+const perlinValue = noise.generate2D(x, y);
+
+// Create fractal noise
+const fbmValue = noise.generateFractal2D(x, y, {
+  octaves: 6,
+  lacunarity: 2.0,
+  persistence: 0.5
+});
+
+// Generate Worley cellular pattern
+const worleyValue = noise.generateWorley2D01(x, y);
+
+// Create domain-warped noise
+const warped = noise.warp2D(x, y, {
+  warpStrength: 2,
+  warpScale: 1.5
+});
+```
+
+## API Highlights
+
+### Core Methods
+- `new ForgeNoise([seed])` - Create new noise generator
+- `generate2D(x, y)` - Classic Perlin noise (range: [-1, 1])
+- `generateSimplex2D(x, y)` - Simplex noise implementation
+- `generateWorley2D(x, y)` - Cellular/Worley noise
+
+### Advanced Features
+- `generateFractal2D()` - Fractional Brownian Motion
+- `warp2D()` - Domain distortion effects
+- `generateTiling2D()` - Seamless tiling patterns
+- `generateVoronoi2D()` - Voronoi diagram generation
+
+### Utility Methods
+- `generate*01()` versions - Output mapped to [0, 1] range
+- `setSeed(seed)` - Update generator seed
+- `configure()` - Global noise parameters
+
+[📚 Full API Documentation](https://yourapidocs.com)
+
+## Examples
+
+### Basic Perlin Noise
+```javascript
+const value = noise.generate2D01(x/20, y/20);
+```
+
+### Turbulent Terrain
+```javascript
+const height = noise.generateFractal2D(x/50, y/50, {
+  octaves: 8,
+  persistence: 0.65,
+  turbulence: true
+});
+```
+
+### Cellular Texturing
+```javascript
+const pattern = noise.generateWorley2D01(x/15, y/15) * 
+               noise.generateSimplex2D01(x/30, y/30);
+```
+
+## Documentation
+
+- [Interactive Examples](https://yourexamples.com)
+- [API Reference](https://yourapidocs.com)
+
+## Contributing
+
+Contributions are welcome! Please read our 
+[Contribution Guidelines](CONTRIBUTING.md) before submitting PRs.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+[MIT](LICENSE) © [TheEmptynessProject]
