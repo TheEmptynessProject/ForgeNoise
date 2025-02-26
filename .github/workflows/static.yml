@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -15,15 +15,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure Pages (with auto-enablement)
+      - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
+          static_site_generator: "other"
           enablement: true
 
       - name: Upload artifact
@@ -31,5 +32,5 @@ jobs:
         with:
           path: 'docs'
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: actions/deploy-pages@v4
