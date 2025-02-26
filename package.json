@@ -1,7 +1,7 @@
 {
   "name": "forge-noise",
   "version": "1.0.0",
-  "description": "A high-performance Perlin noise generation library",
+  "description": "A high-performance noise generation library",
   "main": "forgeNoise.js",
   "scripts": {
     "test": "mocha",
