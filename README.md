@@ -4,7 +4,11 @@
 
 A high-performance JavaScript library for procedural noise generation, featuring multiple algorithms and fractal patterns. Perfect for games, visualizations, and creative coding projects.
 
-![ForgeNoise Examples](https://github.com/TheEmptynessProject/forgeNoise)
+## Examples
+
+![Domain Warping](https://github.com/TheEmptynessProject/forgeNoise/blob/main/examples/DomainWarping.png)
+![Ridged Multifractal](https://github.com/TheEmptynessProject/forgeNoise/blob/main/examples/RidgedMultifractal.png)
+![Warped fBm with Turbulence](https://github.com/TheEmptynessProject/forgeNoise/blob/main/examples/WarpedfBmTurbulence.png)
 
 ## Features
 
