@@ -1,6 +1,6 @@
-# ForgeNoise
+# ForgeNoise 🔥🗣
 
-ForgeNoise is a high-performance Perlin noise generation library for JavaScript. It provides improved 2D and 3D noise generation with optimized algorithms.
+ForgeNoise is a high-performance Perlin noise generation library for JavaScript.
 
 ## Installation
 
