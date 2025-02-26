@@ -28,9 +28,6 @@ When opening an issue please include:
 5. Error messages (if any)
 6. Code examples (if applicable)
 
-## Code of Conduct
-All contributors must adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). Please read it before participating.
-
 ## License
 By contributing, you agree that your contributions will be licensed under the project's MIT License.
 
