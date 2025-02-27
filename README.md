@@ -24,7 +24,7 @@ A high-performance JavaScript library for procedural noise generation, featuring
 
 ### CDN
 ```html
-<script src="https://raw.githubusercontent.com/TheEmptynessProject/ForgeNoise/main/dist/forgeNoise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/TheEmptynessProject/ForgeNoise@main/dist/forgeNoise.min.js"></script>
 ```
 
 ### Local
