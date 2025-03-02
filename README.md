@@ -103,8 +103,9 @@ const pattern = noise.generateWorley2D01(x/15, y/15) *
 
 ## Documentation
 
-- [Interactive Examples](https://yourexamples.com)
-- [API Reference](https://yourapidocs.com)
+- [Interactive Examples](https://theemptynessproject.github.io/repos/ForgeNoise/examples.html)
+- [API Reference](https://theemptynessproject.github.io/repos/ForgeNoise/api.html)
+- [Benchmarks](https://theemptynessproject.github.io/repos/ForgeNoise/benchmark.html)
 
 ## Contributing
 
