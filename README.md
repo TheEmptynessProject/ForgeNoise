@@ -77,8 +77,6 @@ const warped = noise.warp2D(x, y, {
 - `setSeed(seed)` - Update generator seed
 - `configure()` - Global noise parameters
 
-[📚 Full API Documentation](https://yourapidocs.com)
-
 ## Examples
 
 ### Basic Perlin Noise
